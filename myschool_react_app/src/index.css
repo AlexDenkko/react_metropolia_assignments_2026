@@ -41,3 +41,52 @@ td img {
   height: auto;
   border-radius: 6px;
 }
+
+.single-view {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 700px;
+  max-height: 85vh;
+  overflow: auto;
+  padding: 30px;
+  border: 1px solid #dddddd;
+  border-radius: 12px;
+  background-color: white;
+  color: #333333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.single-view h2 {
+  margin-bottom: 15px;
+}
+
+.single-view p {
+  margin-bottom: 20px;
+}
+
+.single-view img,
+.single-view video {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+.close-button {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #333333;
+  color: white;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #555555;
+}
