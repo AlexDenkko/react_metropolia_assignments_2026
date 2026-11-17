@@ -1,6 +1,7 @@
+import {Link} from 'react-router';
 import PropTypes from 'prop-types';
 
-const MediaRow = ({item, selectedItem, setSelectedItem}) => {
+const MediaRow = ({item}) => {
   return (
     <tr>
       <td>
@@ -18,12 +19,9 @@ const MediaRow = ({item, selectedItem, setSelectedItem}) => {
       <td>{item.media_type}</td>
 
       <td>
-        <button
-          onClick={() => setSelectedItem(item)}
-          aria-pressed={selectedItem?.media_id === item.media_id}
-        >
-          View
-        </button>
+        <Link to="/single" state={item}>
+          Show
+        </Link>
       </td>
     </tr>
   );
