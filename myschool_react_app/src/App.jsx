@@ -1,10 +1,10 @@
 import {Route, BrowserRouter, Routes} from 'react-router';
 
 import Layout from './components/Layout';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import Upload from './pages/Upload';
-import Single from './pages/Single';
+import Home from './views/Home';
+import Profile from './views/Profile';
+import Upload from './views/Upload';
+import Single from './views/Single';
 
 const App = () => {
   return (

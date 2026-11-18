@@ -1,35 +1,40 @@
 import {useLocation, useNavigate} from 'react-router';
 
 const Single = () => {
-  // Haetaan MediaRow-komponentista lähetetty mediaobjekti
+  // Haetaan mediadata, joka lähetettiin MediaRow-komponentista
   const {state: item} = useLocation();
 
-  // Otetaan käyttöön navigointi
+  // Mahdollistaa siirtymisen takaisin
   const navigate = useNavigate();
 
-  // Jos mediaa ei ole valittu
+  // Tarkistetaan, onko media valittu
   if (!item) {
     return (
       <div>
-        <h1>No media selected</h1>
+        <h2>No media selected</h2>
+
         <button onClick={() => navigate('/')}>Go Home</button>
       </div>
     );
   }
 
   return (
-    <div>
-      <h1>{item.title}</h1>
+    <div className="single-view">
+      <button className="close-button" onClick={() => navigate('/')}>
+        Back to Home
+      </button>
+
+      <h2>{item.title}</h2>
 
       <p>{item.description}</p>
 
-      <p>Filename: {item.filename}</p>
+      {item.media_type.startsWith('image/') && (
+        <img src={item.filename} alt={item.title} />
+      )}
 
-      <p>Media type: {item.media_type}</p>
-
-      <p>File size: {item.filesize}</p>
-
-      <button onClick={() => navigate(-1)}>Go back</button>
+      {item.media_type.startsWith('video/') && (
+        <video src={item.filename} controls />
+      )}
     </div>
   );
 };
